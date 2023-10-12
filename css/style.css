@@ -1,0 +1,640 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* inserisco font tramite file interni*/
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../font/Montserrat-Regular.woff2') format('woff2'),
+        url('../font/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat black';
+    src: url('../font/Montserrat-Black.woff2') format('woff2'),
+        url('../font/Montserrat-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+}
+
+.background-color-page {
+    background-color: #fff;
+    width: 100%;
+}
+.navbar-toggler-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+    height: 30px;
+}
+.navbar-toggler-label .costum-bar{
+    width: 30px;
+    height: 2px;
+    margin-bottom:3px;
+    margin-top: 3px;
+    background-color: #5c5c5c;
+    border-radius: 10%;
+    transition: .4s;
+}
+button.navbar-toggler:active .costum-bar:nth-child(1){
+    position: absolute;
+    transform: rotate(45deg);
+    transition: 1s;
+}
+button.navbar-toggler:active .costum-bar:nth-child(2) {
+    display: none;
+}
+button.navbar-toggler:active .costum-bar:nth-child(3) {
+    transform: rotate(-45deg);
+    transition: 1s;
+}
+/* colonna della galleria immagini per effetto zoom senza overflow*/
+.col-6 {
+    overflow: hidden;
+}
+
+/* div divisori tra elementi per layout simile all'originale*/
+.vlt-gap-120 {
+    height: 120px;
+}
+
+.vlt-gap-60--sm {
+    height: 60px;
+}
+
+.vlt-gap-35 {
+    height: 35px;
+}
+
+.vlt-gap-30--sm {
+    height: 30px;
+}
+
+/*per allineare elementi nav all'inizio del container nel caso di menu espanso*/
+div.container-nav-costum {
+    align-items: flex-start !important;
+}
+
+/**per sistemare span sopra la paperbag nella nav*/
+.costum-span-position {
+    top: 30%;
+    left: 80%;
+}
+
+/* adattamento immagini nav alle dimensioni del layout*/
+.custom-paperbag {
+    height: auto;
+    width: 20px;
+}
+
+.custom-logo {
+    height: auto;
+    width: 100px;
+}
+
+/* sezione link navbar tutte le implementazioni del font e dei background-color*/
+.navbar-custom-link a {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+    margin: 0 5px 0 5px;
+    color: #000;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.navbar-custom-link a:hover {
+    color: #EE3364;
+}
+
+/* creazione classi per colori primari*/
+.first-color {
+    color: #EE3364;
+}
+
+.second-color {
+    color: #00bec5;
+}
+
+/*sezione finale header con background immagine e titolo*/
+.costum-header {
+    min-height: 500px;
+    background-image: url("../img/header.jpeg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.costum-header h1 {
+    font-size: 7rem;
+    font-weight: 700;
+}
+
+.costum-header h4 {
+    color: #5c5c5c;
+    font-size: 1.3rem;
+    font-weight: 300;
+    width: 50%;
+    line-height: 1.5rem;
+}
+
+/*stile personalizzato bottoni pagina*/
+.btn-header-costum {
+    font-family: Montserrat;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #EE3364;
+    --bs-btn-border-color: #EE3364;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #EE3364;
+    --bs-btn-hover-border-color: #17a3b8;
+    --bs-btn-focus-shadow-rgb: 130, 138, 145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #17a2b8;
+    --bs-btn-active-border-color: #17a2b8;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: 200;
+    padding: 10px 30px 10px 30px;
+    position: relative;
+    z-index: 0;
+}
+
+.btn-header-costum::after {
+    content: "";
+    background-color: #17a2b8;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.5s;
+    transform-origin: 0 0;
+}
+
+.btn-header-costum::after {
+    transform: scaleY(0);
+}
+
+.btn-header-costum:hover::after {
+    transform: scaleY(1);
+}
+
+h3.first-color {
+    font-size: 2.2rem;
+    line-height: 1.32;
+    font-weight: 600;
+}
+
+/*per animazione scritta 'service' nella seconda sezione del sito*/
+@keyframes service {
+    from {
+        translate: 0;
+    }
+
+    to {
+        translate: -100%;
+    }
+}
+
+.service-animation-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    z-index: +1;
+    margin-bottom: -150px;
+    background-color: #ffffff00;
+}
+
+.service-animation {
+    color: #5c5c5c15;
+    font-size: 15rem;
+    font-weight: 700;
+    animation-name: service;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
+}
+
+/*css per seconda sezione*/
+.costum-second-img img {
+    height: auto;
+    width: 100%;
+}
+
+/*quarta sezione,galleria immagini*/
+div.row-costum-gallery-image {
+    overflow: hidden;
+    padding: 0;
+    background-color: #00bec5;
+    position: relative;
+}
+
+.row-costum-gallery-image h3 {
+    display: none;
+    position: absolute;
+    font-family: 'Montserrat black';
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0;
+    left: 0;
+    background-color: rgba(238, 51, 100, .9);
+    height: 100%;
+    width: 100%;
+    color: #fff
+}
+
+.row-costum-gallery-image a:hover h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: #ee3365ea;
+}
+
+.image-span {
+    font-family: Montserrat;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.row-costum-gallery-image img {
+    width: 100%;
+    transition: 1s ease;
+}
+
+.row-costum-gallery-image a:hover img {
+    transition: 2s ease;
+    transform: scale(1.2);
+}
+
+.img-foot {
+    min-height: 550px;
+}
+
+.img-foot img {
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/*stile terza sezione*/
+.card-img img {
+    height: 70px;
+    width: auto;
+    margin: 30px;
+}
+
+.costum-card {
+    border: 0;
+}
+
+.card-text-costum {
+    color: #5c5c5c;
+    padding: 10px;
+}
+
+.card-body h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.custom-bar h5 {
+    font-size: 0.8rem;
+}
+
+.progress-custom {
+    height: 7px;
+}
+
+.bg-costum {
+    background-color: #00bec5;
+}
+
+.costum-header-post-gallery h4 {
+    font-size: 3rem;
+    line-height: 1.25;
+}
+
+.costum-header-post-gallery p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.65;
+    letter-spacing: .004em;
+    color: #5c5c5c
+}
+
+.btn-costum {
+    width: 40%;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.costum-img-att img {
+    height: auto;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: -50px;
+}
+
+div.costum-img-att {
+    border: 10px solid #00bec5;
+    max-height: 80%;
+}
+
+.row-partner-logo img {
+    height: 130px;
+    width: auto;
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.row-partner-logo {
+    opacity: 0.4;
+}
+
+.costum-video-row {
+    min-height: 400px;
+    background-image: url("../img/footer-image.jpg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.btn-close-costum {
+    background-color: #00bec5;
+    transition: 1s;
+}
+
+.btn-close-costum:hover {
+    background-color: #EE3364;
+    transition: 1s;
+}
+
+.costum-modal {
+    --bs-modal-width: 90%;
+    --bs-modal-bg: none;
+    --bs-modal-border-color: 0;
+    --bs-modal-header-border-color: 0;
+}
+
+.costum-video-header {
+    background-color: rgba(0, 0, 0, 0);
+    min-height: 400px;
+}
+
+.costum-video-header_header h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.btn-video-costum {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #000;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #000;
+    --bs-btn-hover-border-color: #000;
+    --bs-btn-focus-shadow-rgb: 130, 138, 145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #000000;
+    --bs-btn-active-border-color: #fff;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: 200;
+    padding: 10px 30px 10px 30px;
+    position: relative;
+    z-index: 0;
+}
+
+.btn-video-costum::after {
+    content: "";
+    background-color: #fff;
+    border: 1px solid #000;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.5s;
+    transform-origin: 0 0;
+}
+
+.btn-video-costum::after {
+    transform: scaleY(0);
+}
+
+.btn-video-costum:hover::after {
+    transform: scaleY(1);
+    transition: 0.5s;
+}
+
+.costum-video-row>* {
+    padding: 0;
+}
+
+.costum-video-row_video {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.costum-video-row_video span {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: #EE3364;
+    transition: 0.5s ease;
+
+}
+
+.costum-video-row_video span:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+
+.play img {
+    translate: 125% 120%;
+    height: 30px;
+    width: auto;
+}
+
+.carousel-inner {
+    min-height: 600px;
+    background-image: url("../img/header.jpeg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.carousel-item {
+    min-height: 600px;
+    background-color: #00bfc5e0;
+}
+
+.carousel-header {
+    color: #fff;
+    padding: 50px;
+    font-size: 2rem;
+}
+
+.carousel-item h5 {
+    color: #fff;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+.carousel-item img {
+    margin-top: 100px;
+}
+
+.modal-body video {
+    height: auto;
+    width: 100%;
+}
+
+.custom-map-row {
+    background-color: #f5f5f5;
+}
+
+.costum-footer-row {
+    min-height: 400px;
+    background-image: url("../img/footer-image.jpg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.footer-copyright {
+    color: #5c5c5c;
+    padding: 10px;
+    margin: 15px;
+    text-align: center;
+}
+
+img.footer-social_icon {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 20px;
+    width: auto;
+}
+
+@media screen and (min-width: 800px) {
+    .costum-second-img-position {
+        margin-top: 100px;
+        margin-right: -450px;
+        margin-bottom: -50px;
+        z-index: +2;
+    }
+
+    .custom-we-are {
+        position: absolute;
+        left: 10%;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .dropdown-menu {
+        background-color: #000;
+        border-radius: 0;
+        top: 50px;
+    }
+
+    .dropdown-menu a {
+        color: #fff;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #000;
+        width: 80%;
+    }
+
+    .navbar-collapse-custom {
+        justify-content: flex-end;
+    }
+
+    .dropdown-menu {
+        top: 46px !important;
+    }
+
+    .navbar-nav {
+        align-self: flex-end;
+    }
+
+    .col-costum-logo {
+        order: -1;
+    }
+
+
+    .custom-we-are {
+        top: 15%;
+    }
+
+    .col-costum-paper-bag {
+        justify-content: flex-start !important;
+        margin-left: 10px;
+    }
+
+    .costum-nav-link {
+        position: relative;
+    }
+
+    .costum-nav-link::after {
+        content: "";
+        width: 0px;
+        height: 2px;
+        background-color: #EE3364;
+        position: absolute;
+        left: calc(50% - 15px);
+        transition: 0.5s ease;
+
+    }
+
+    .costum-nav-link:hover::after {
+        content: "";
+        width: 30px;
+        transition: 0.5s ease;
+    }
+    .costum-footer-row {
+        position:fixed;
+        bottom: 0;
+        z-index: -1;
+    }
+    .custom-map-row {
+        margin-bottom: 400px;
+    }
+}
